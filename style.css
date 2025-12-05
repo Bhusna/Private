@@ -1,0 +1,1119 @@
+/* ---------- ROOT & GLOBAL ---------- */
+:root {
+  --bg-soft: #ffe6f0;
+  --bg-soft-2: #ffd6eb;
+  --accent: #ff6fa8;
+  --accent-soft: #ff9fc5;
+  --accent-deep: #ff4f93;
+  --text-main: #2a2a2a;
+  --text-soft: #5a4b5c;
+  --white: #ffffff;
+  --shadow-soft: 0 15px 30px rgba(255, 111, 168, 0.24);
+  --radius-lg: 22px;
+  --radius-xl: 30px;
+  --transition-fast: 0.25s ease;
+  --transition-slow: 0.6s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base body (will be overridden per page) */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #ffeaf4 0%, #ffe0f0 40%, #ffd1e8 70%, #f7c7e8 100%);
+  color: var(--text-main);
+  min-height: 100vh;
+  line-height: 1.6;
+  transition: background 0.6s ease;
+}
+
+main {
+  padding: 80px 16px 40px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ---------- PAGE-SPECIFIC VIBES ---------- */
+
+body.page-home {
+  background: radial-gradient(circle at top, #ffe9f6 0%, #ffd8ec 35%, #ffcfe8 65%, #fbc7f3 100%);
+}
+
+body.page-about {
+  background: linear-gradient(135deg, #fff9fd 0%, #ffeefa 40%, #ffe0f5 100%);
+}
+
+body.page-memories {
+  background: radial-gradient(circle at top, #fff3fa 0%, #ffe2f5 40%, #ffd4ed 90%);
+}
+
+body.page-reasons {
+  background: radial-gradient(circle at top, #f5f3ff 0%, #ede9fe 40%, #e0e7ff 100%);
+}
+
+body.page-song {
+  background: radial-gradient(circle at top, #160b28 0%, #090415 50%, #04010b 100%);
+  color: #fefbff;
+}
+
+body.page-letter {
+  background: radial-gradient(circle at top, #ffeef5 0%, #ffe0f3 45%, #ffd4ec 100%);
+}
+
+body.page-forever {
+  background: linear-gradient(145deg, #fff5fb 0%, #ffe3f4 50%, #ffd5ec 100%);
+}
+
+/* Adjust headings on song page (dark) */
+body.page-song .section-title,
+body.page-song .section-subtitle,
+body.page-song .section-eyebrow {
+  color: #fefbff;
+}
+
+body.page-song .footer {
+  color: #f7e5f6;
+}
+body.page-song .footer span {
+  color: #ffb8dd;
+}
+
+/* ---------- NAVBAR SHARED ---------- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(14px);
+  background: linear-gradient(90deg, rgba(255, 235, 245, 0.9), rgba(255, 208, 232, 0.9));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  gap: 12px;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.logo span {
+  font-size: 1.4rem;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.nav-links a {
+  font-size: 0.8rem;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 111, 168, 0.32);
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    background var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.nav-links a:hover {
+  background: var(--accent-soft);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-soft);
+}
+/* ---------- NAVBAR TWEAKS FOR SONG PAGE ---------- */
+body.page-song .nav {
+  background: linear-gradient(
+    90deg,
+    rgba(7, 5, 20, 0.9),
+    rgba(18, 11, 40, 0.95)
+  );                     /* darker, matches starry theme */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+body.page-song .logo {
+  color: #fefbff;
+}
+
+body.page-song .logo span {
+  /* the little emoji / icon */
+  filter: drop-shadow(0 0 6px rgba(255, 183, 222, 0.7));
+}
+
+body.page-song .nav-links a {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fdf2ff;
+}
+
+body.page-song .nav-links a:hover {
+  background: rgba(255, 111, 168, 0.9);
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(255, 111, 168, 0.55);
+  transform: translateY(-1px);
+}
+/* ---------- SECTION HEADINGS ---------- */
+.section-heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.section-eyebrow {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.section-title {
+  font-size: 1.7rem;
+  margin-bottom: 6px;
+}
+
+.section-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-soft);
+}
+
+/* ---------- ANIMATIONS ---------- */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatSoft {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-4px) translateX(3px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+
+@keyframes pulseSoft {
+  0% {
+    transform: scale(1);
+    opacity: 0.65;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.65;
+  }
+}
+
+/* shared fade-up on main cards and sections */
+.hero-card,
+.hero-side-card,
+.about-card,
+.memory-wrapper,
+.reasons-strip,
+.letter-card,
+.end-card,
+.starry-wrap {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s ease-out forwards;
+}
+
+/* slight delays for nicer feel */
+.hero-side-card {
+  animation-delay: 0.12s;
+}
+.about-layout .about-card:nth-child(2) {
+  animation-delay: 0.12s;
+}
+.memory-wrapper {
+  animation-delay: 0.08s;
+}
+.reasons-grid {
+  animation-delay: 0.08s;
+}
+.starry-wrap {
+  animation-delay: 0.12s;
+}
+
+/* ---------- CUTE STICKERS (sticker-like pills) ---------- */
+.sticker-cloud {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0 8px;
+}
+
+.sticker {
+  min-width: 60px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: radial-gradient(circle at top, #fff9fd, #ffd9ee);
+  box-shadow: 0 8px 18px rgba(255, 148, 200, 0.38);
+  border: 1px solid rgba(255, 170, 211, 0.8);
+  transform: translateY(0);
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    rotate 0.2s ease;
+}
+
+/* soft floating motion for stickers */
+.sticker:nth-child(1) {
+  animation: floatSoft 5.5s ease-in-out infinite;
+}
+.sticker:nth-child(2) {
+  animation: floatSoft 6.2s ease-in-out infinite;
+}
+.sticker:nth-child(3) {
+  animation: floatSoft 5.8s ease-in-out infinite;
+}
+.sticker:nth-child(4) {
+  animation: floatSoft 6.5s ease-in-out infinite;
+}
+.sticker:nth-child(5) {
+  animation: floatSoft 7s ease-in-out infinite;
+}
+.sticker:nth-child(6) {
+  animation: floatSoft 6.8s ease-in-out infinite;
+}
+
+.sticker span {
+  font-size: 1.1rem;
+}
+
+.sticker:hover {
+  transform: translateY(-2px) rotate(-1.5deg);
+  box-shadow: 0 12px 26px rgba(255, 130, 195, 0.55);
+}
+
+/* ---------- HOME PAGE ---------- */
+.home-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.9fr);
+  gap: 30px;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .home-hero {
+    grid-template-columns: 1fr;
+  }
+}
+
+.hero-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 232, 246, 0.98));
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-soft);
+  padding: 26px 22px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-card::before {
+  content: "for you";
+  position: absolute;
+  right: -40px;
+  top: 10px;
+  font-size: 3rem;
+  font-weight: 700;
+  color: rgba(255, 167, 205, 0.22);
+  transform: rotate(-16deg);
+  pointer-events: none;
+}
+
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255, 215, 238, 0.95);
+  font-size: 0.75rem;
+  margin-bottom: 10px;
+}
+
+.hero-pill span {
+  font-size: 1rem;
+}
+
+.hero-title {
+  font-size: clamp(1.9rem, 4vw, 2.4rem);
+  margin-bottom: 10px;
+}
+
+.hero-title span {
+  color: var(--accent);
+}
+
+.hero-subtitle {
+  font-size: 0.98rem;
+  color: var(--text-soft);
+  margin-bottom: 14px;
+}
+
+.hero-note {
+  font-size: 0.85rem;
+  color: var(--accent-deep);
+  margin-top: 6px;
+}
+
+/* Side card on home */
+.hero-side-card {
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: var(--radius-xl);
+  padding: 18px 16px;
+  box-shadow: 0 12px 26px rgba(211, 130, 178, 0.45);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-heart-bg {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  border-radius: 40px;
+  background: radial-gradient(circle at 20% 20%, #ffe6f5, #ff8ebc);
+  top: -28px;
+  right: -30px;
+  opacity: 0.7;
+  filter: blur(0.4px);
+  animation: pulseSoft 6s ease-in-out infinite;
+}
+
+.hero-emoji {
+  font-size: 2.2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-side-text {
+  position: relative;
+  z-index: 1;
+  font-size: 0.92rem;
+  color: var(--text-soft);
+  margin-top: 10px;
+}
+
+/* ---------- ABOUT HER PAGE ---------- */
+.about-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 26px;
+  align-items: flex-start;
+}
+
+@media (max-width: 768px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.about-card {
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: var(--radius-xl);
+  padding: 22px 20px;
+  box-shadow: var(--shadow-soft);
+}
+
+.about-line {
+  font-size: 0.96rem;
+  color: var(--text-soft);
+  margin-bottom: 8px;
+}
+
+.about-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255, 244, 252, 0.96);
+  font-size: 0.8rem;
+  border: 1px dashed rgba(255, 111, 168, 0.5);
+}
+
+.about-highlight {
+  font-weight: 600;
+  color: var(--accent-deep);
+}
+
+/* ---------- REASONS STRIP (100 reasons) ---------- */
+.reasons-strip {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 10px 2px 10px;
+  scroll-snap-type: x mandatory;
+}
+
+.reason-card {
+  min-width: 230px;
+  max-width: 260px;
+  background: linear-gradient(135deg, #fdf4ff, #ede9fe);
+  border-radius: 22px;
+  padding: 16px 16px 18px;
+  border: 1px solid rgba(196, 181, 253, 0.9);
+  box-shadow: 0 12px 26px rgba(129, 140, 248, 0.35);
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+/* soft glow overlay */
+.reason-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 0 0, rgba(224, 231, 255, 0.8), transparent 60%);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+
+.reason-card:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 18px 36px rgba(129, 140, 248, 0.5);
+}
+
+.reason-number {
+  position: relative;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #7c3aed; /* lavender purple */
+  margin-bottom: 4px;
+}
+
+.reason-title {
+  position: relative;
+  font-size: 0.98rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #4c1d95;
+}
+
+.reason-text {
+  position: relative;
+  font-size: 0.86rem;
+  color: #5b4b7a;
+}
+
+/* special styling for the infinity card */
+.reason-card.infinity-card {
+  background: linear-gradient(145deg, #fdf2ff, #ddd6fe);
+  border: 1px solid rgba(168, 85, 247, 0.95);
+  box-shadow: 0 20px 40px rgba(147, 51, 234, 0.6);
+}
+
+.reason-card.infinity-card .reason-number {
+  font-size: 1.25rem;
+  color: #6d28d9;
+}
+/* ---------- MEMORIES / GALLERY ---------- */
+.memory-wrapper {
+  margin-top: 10px;
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: var(--radius-xl);
+  padding: 22px 18px 22px;
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+
+.memory-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.memory-top span {
+  font-size: 0.88rem;
+  color: var(--text-soft);
+}
+
+.memory-scroll {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding: 6px 2px 4px;
+  scroll-snap-type: x mandatory;
+}
+
+.memory-card {
+  min-width: 220px;
+  max-width: 250px;
+  background: linear-gradient(135deg, #fff9fd, #ffe7f5);
+  border-radius: 18px;
+  padding: 10px 10px 12px;
+  border: 1px solid rgba(255, 191, 223, 0.95);
+  box-shadow: 0 10px 22px rgba(252, 171, 212, 0.5);
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* slight scrapbook vibe tilt */
+.memory-card:nth-child(odd) {
+  transform: rotate(-1.2deg);
+}
+.memory-card:nth-child(even) {
+  transform: rotate(1deg);
+}
+.memory-card:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+
+.memory-photo {
+  height: 120px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #ffd4ea, #ffc3e2);
+  display: grid;
+  place-items: center;
+  font-size: 1.7rem;
+  margin-bottom: 8px;
+}
+/* ---------- MEMORY PHOTO IMAGE STYLING ---------- */
+.memory-photo img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.memory-photo img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+.memory-meta {
+  font-size: 0.75rem;
+  color: var(--accent);
+  margin-bottom: 2px;
+  font-weight: 600;
+}
+
+.memory-title {
+  font-size: 0.9rem;
+  margin-bottom: 3px;
+}
+
+.memory-text {
+  font-size: 0.8rem;
+  color: var(--text-soft);
+}
+
+.memory-card::after {
+  content: "♡";
+  position: absolute;
+  right: 8px;
+  bottom: 6px;
+  font-size: 1.1rem;
+  color: rgba(255, 146, 201, 0.8);
+}
+
+.memory-hint {
+  font-size: 0.75rem;
+  color: var(--text-soft);
+  opacity: 0.8;
+  margin-top: 6px;
+}
+/* 🌸 Custom fix for 'Everything’s perfect — but mostly her' photo */
+.memory-card.fav-dress .memory-photo img {
+  object-position: center top;   /* focus on her face */
+  height: 220px;                 /* slightly taller image */
+}
+
+/* Optional: fix it in modal popup too */
+.memory-modal-photo img[src*="purva-fav.jpg"] {
+  object-position: center top !important;
+}
+/* 💜 Fix alignment for Purva in saree photo */
+.memory-card.purva-saree .memory-photo img {
+  object-position: center top;   /* shift focus to her face */
+  height: 220px;                 /* make the frame taller */
+}
+
+/* Also fix for the modal popup version */
+.memory-modal-photo img[src*="purva-saree.jpg"] {
+  object-position: center top !important;
+}
+/* 💜 Fix modal image alignment for Purva saree photo */
+.memory-modal-photo img[src*="purva-saree.jpg"] {
+  object-position: center top !important;   /* move focus up */
+  object-fit: cover !important;
+  max-height: 260px !important;             /* more breathing space */
+}
+/* 💖 Fix popup crop for baby photo */
+.memory-modal-photo img[src*="baby-purva.jpg"] {
+  object-fit: cover !important;
+  object-position: center top !important;  /* show her face properly */
+  max-height: 260px !important;            /* make image area taller */
+}
+/* 🌸 Fix popup crop for saree-in-sunlight photo */
+.memory-modal-photo img[src*="purva-saree.jpg"] {
+  object-fit: cover !important;
+  object-position: center 50% !important;  /* shift focus slightly down */
+  max-height: 260px !important;
+  border-radius: 18px;
+}
+/* 🌸 Fix popup crop for purva motichoor photo */
+.memory-modal-photo img[src*="purva-motichoor.jpg"] {
+  object-fit: cover !important;
+  object-position: center 50% !important;  /* shift focus slightly down */
+  max-height: 260px !important;
+  border-radius: 18px;
+}
+/* 🌸 Fix popup crop for navratri Together photo */
+.memory-modal-photo img[src*="navratri-together.jpg"] {
+  object-fit: cover !important;
+  object-position: center 90% !important;  /* shift focus slightly down */
+  max-height: 260px !important;
+  border-radius: 18px;
+}
+
+/* ---------- MEMORY MODAL (POPUP) ---------- */
+.memory-modal-photo img {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  border-radius: 18px;
+  object-fit: cover;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+  animation: fadeUp 0.35s ease;
+}
+.memory-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 6, 20, 0.55);
+  backdrop-filter: blur(8px);
+  display: none; /* hidden by default */
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.memory-modal-backdrop.is-open {
+  display: flex;
+}
+
+.memory-modal {
+  background: linear-gradient(135deg, #fff9fd, #ffe5f5);
+  border-radius: 26px;
+  padding: 18px 18px 16px;
+  max-width: 420px;
+  width: 90%;
+  max-height: 80vh;          /* NEW: don’t exceed screen height */
+  box-shadow: 0 20px 40px rgba(73, 16, 53, 0.45);
+  position: relative;
+  animation: fadeUp 0.35s ease-out forwards;
+  overflow-y: auto;          /* NEW: scroll inside modal if needed */
+}
+.memory-modal-inner {
+  text-align: left;
+}
+
+.memory-modal-photo {
+  border-radius: 20px;
+  background: linear-gradient(135deg, #ffd4ea, #ffc3e2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  padding: 6px;
+}
+
+/* popup image – show faces better */
+.memory-modal-photo img {
+  width: 100%;
+  height: auto;
+  max-height: 260px;              /* a bit taller so more of you is visible */
+  border-radius: 18px;
+  object-fit: cover;
+  object-position: center top;    /* ⭐ shift crop upward to the face */
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+  animation: fadeUp 0.35s ease;
+}
+.memory-modal-meta {
+  font-size: 0.8rem;
+  color: var(--accent);
+  margin-bottom: 3px;
+  font-weight: 600;
+}
+
+.memory-modal-title {
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.memory-modal-text {
+  font-size: 0.88rem;
+  color: var(--text-soft);
+}
+
+.memory-modal-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.memory-close-btn {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: rgba(120, 60, 96, 0.85);
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.memory-close-btn:hover {
+  transform: scale(1.1);
+  color: rgba(90, 30, 70, 1);
+}
+
+.memory-step-label {
+  font-size: 0.78rem;
+  color: var(--text-soft);
+  opacity: 0.8;
+}
+.memory-hint {
+  max-width: 320px;
+  margin: 1.75rem auto 0;
+  padding: 0.85rem 1.4rem;
+  text-align: center;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #b8688e;
+
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(10px);
+}
+/* ---------- STARRY SECTION (Our Song etc.) ---------- */
+.starry-wrap {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  padding: 30px 20px;
+  background: radial-gradient(circle at top, #2b2242, #090b16 60%, #050712 100%);
+  color: #fefbff;
+  box-shadow: 0 16px 40px rgba(5, 7, 18, 0.7);
+}
+
+.starry-sky,
+.starry-sky::before,
+.starry-sky::after {
+  position: absolute;
+  top: -50%;
+  left: -10%;
+  width: 140%;
+  height: 200%;
+  content: "";
+  background-repeat: repeat;
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, rgba(255, 255, 255, 0.65), transparent),
+    radial-gradient(1px 1px at 80% 10%, rgba(255, 255, 255, 0.9), transparent),
+    radial-gradient(1px 1px at 50% 80%, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(2px 2px at 20% 60%, rgba(255, 193, 248, 0.75), transparent),
+    radial-gradient(2px 2px at 70% 40%, rgba(173, 216, 255, 0.8), transparent);
+  opacity: 0.85;
+}
+
+.starry-sky {
+  animation: drift 40s linear infinite;
+}
+.starry-sky::before {
+  animation: drift 65s linear infinite reverse;
+  opacity: 0.6;
+}
+.starry-sky::after {
+  animation: drift 85s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-150px, 150px, 0);
+  }
+}
+
+.starry-content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: 24px;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .starry-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Song card inside starry */
+.song-text {
+  font-size: 0.96rem;
+  opacity: 0.9;
+  margin-bottom: 10px;
+}
+
+.song-quote {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  font-style: italic;
+}
+
+.song-card {
+  background: rgba(5, 7, 18, 0.78);
+  border-radius: 20px;
+  padding: 16px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.song-meta {
+  font-size: 0.8rem;
+  opacity: 0.9;
+  margin-bottom: 4px;
+}
+
+.song-title {
+  font-size: 1.02rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.song-artist {
+  font-size: 0.86rem;
+  opacity: 0.88;
+  margin-bottom: 8px;
+}
+
+audio {
+  width: 100%;
+  margin-top: 4px;
+  border-radius: 12px;
+}
+
+/* ---------- LOVE LETTER CARD ---------- */
+.letter-card {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-soft);
+  padding: 24px 20px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.letter-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 0 0, rgba(255, 148, 200, 0.24), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(162, 196, 255, 0.16), transparent 50%);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.letter-header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.letter-to {
+  font-size: 0.9rem;
+  color: var(--text-soft);
+}
+
+.letter-to span {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.stamp {
+  padding: 4px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 111, 168, 0.35);
+  font-size: 0.8rem;
+  background: rgba(255, 245, 250, 0.95);
+}
+
+.letter-body {
+  position: relative;
+  z-index: 1;
+  min-height: 120px;
+  font-size: 0.96rem;
+  color: var(--text-soft);
+  white-space: pre-wrap;
+}
+
+.letter-body-placeholder {
+  opacity: 0.6;
+}
+
+.letter-actions {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+/* ---------- BUTTONS ---------- */
+.btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  border-radius: 999px;
+  padding: 8px 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(255, 111, 168, 0.55);
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    opacity 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(255, 111, 168, 0.65);
+}
+
+.btn.subtle {
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--accent);
+  border: 1px solid rgba(255, 111, 168, 0.4);
+  box-shadow: none;
+}
+
+.btn.subtle:hover {
+  box-shadow: 0 6px 16px rgba(255, 111, 168, 0.35);
+}
+
+/* ---------- FOREVER / END CARD ---------- */
+.end-card {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 222, 244, 0.98));
+  border-radius: var(--radius-xl);
+  padding: 26px 22px;
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.end-card::before {
+  content: "forever";
+  position: absolute;
+  left: -40px;
+  bottom: 0;
+  font-size: 3.1rem;
+  font-weight: 700;
+  color: rgba(255, 167, 205, 0.16);
+  transform: rotate(14deg);
+}
+
+.end-big {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+
+.end-text {
+  font-size: 0.96rem;
+  color: var(--text-soft);
+  margin-bottom: 14px;
+}
+
+.end-mini {
+  font-size: 0.8rem;
+  color: var(--accent-deep);
+}
+
+/* ---------- FOOTER ---------- */
+.footer {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  padding: 0 16px 22px;
+}
+
+.footer span {
+  color: var(--accent);
+}
